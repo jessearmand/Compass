@@ -15,5 +15,4 @@ Pod::Spec.new do |s|
 
   s.ios.source_files = 'Sources/{iOS,Shared}/**/*'
   s.osx.source_files = 'Sources/{Mac,Shared}/**/*'
-  s.dependency 'Sugar'
 end
