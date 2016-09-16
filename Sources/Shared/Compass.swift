@@ -19,8 +19,9 @@ public struct Compass {
   public typealias ParseCompletion = (route: String, arguments: [String : String], fragments: [String : AnyObject]) -> Void
 
   public static func parse(url: NSURL, fragments: [String : AnyObject] = [:], completion: ParseCompletion) -> Bool {
+    guard let urlString = url.absoluteString else { return false }
 
-    let path = url.absoluteString.substringFromIndex(scheme.endIndex)
+    let path = urlString.substringFromIndex(scheme.endIndex)
 
     guard !(path.containsString("?") || path.containsString("#"))
       else { return parseAsURL(url, completion: completion) }
